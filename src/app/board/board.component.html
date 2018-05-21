@@ -1,18 +1,18 @@
 <h3>蛇形排阵</h3>
 
+<p>参赛人数: {{selectedValue}}人</p>
+
 <mat-form-field>
   <mat-select [(ngModel)]="selectedValue">
-    <mat-option *ngFor="let opt of options" [value]="opt.value">
-      {{opt.viewValue}}
+    <mat-option *ngFor="let opt of options" [value]="opt" (click)="onSelect(opt)">
+      {{opt}}人
     </mat-option>
   </mat-select>
 </mat-form-field>
 
-<!--<p>You selected: {{selectedValue}}</p>-->
-
 <div class="positions-container">
-  <ul class="position-list" ngClass="{{'list' + game.length}}" *ngFor="let game of games; index as row">
-    <li class="position-list-item" *ngFor="let pos of game; index as i">
+  <ul class="position-list" *ngFor="let oneOrder of orderMatrix; index as row" ngClass="{{'list' + oneOrder.length}}">
+    <li class="position-list-item" *ngFor="let pos of oneOrder; index as i">
       <span class="item-index">{{i+1}}</span>
       <span>{{pos}}</span>
     </li>
