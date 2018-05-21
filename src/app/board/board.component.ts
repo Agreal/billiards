@@ -8,7 +8,7 @@ import {Games, getSnakeOrderMatrix} from './games';
 })
 export class BoardComponent {
   options = Games;
-  selectedValue = 64;
+  selectedValue = 8;
   orderMatrix;
 
   constructor() {

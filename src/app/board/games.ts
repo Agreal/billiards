@@ -1,7 +1,7 @@
 // 决赛对阵名次
 const FinalGame = [1, 2];
 
-export const Games = [4, 8, 16, 32, 64];
+export const Games = [4, 8, 16, 32, 64, 128];
 
 // 蛇形排阵
 export function getSnakeOrderMatrix(playerCount: number) {

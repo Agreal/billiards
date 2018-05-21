@@ -1,4 +1,4 @@
-<h3>蛇形排阵</h3>
+<h3>蛇形对阵</h3>
 
 <p>参赛人数: {{selectedValue}}人</p>
 
@@ -11,7 +11,7 @@
 </mat-form-field>
 
 <div class="positions-container">
-  <ul class="position-list" *ngFor="let oneOrder of orderMatrix; index as row" ngClass="{{'list' + oneOrder.length}}">
+  <ul class="position-list" *ngFor="let oneOrder of orderMatrix; index as row" ngClass="{{'list-' + row}}">
     <li class="position-list-item" *ngFor="let pos of oneOrder; index as i">
       <span class="item-index">{{i+1}}</span>
       <span>{{pos}}</span>

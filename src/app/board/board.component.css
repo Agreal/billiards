@@ -22,35 +22,40 @@
   position: relative;
   border: 1px solid #ccc;
 }
-.list64 .position-list-item {
+.list-0 .position-list-item {
   margin: 0;
   /* 4*1 - 0*1 */
   height: 4em;
 }
-.list32 .position-list-item {
+.list-1 .position-list-item {
   margin: 1em 0;
   /* 4*2 - 1*2 */
   height: 6em;
 }
-.list16 .position-list-item {
+.list-2 .position-list-item {
   margin: 2em 0;
   /* 4*4 - 2*2 */
   height: 12em;
 }
-.list8 .position-list-item {
+.list-3 .position-list-item {
   margin: 3em 0;
   /* 4*8 - 3*2 */
   height: 26em;
 }
-.list4 .position-list-item {
+.list-4 .position-list-item {
   margin: 4em 0;
   /* 4*16 - 4*2 */
   height: 56em;
 }
-.list2 .position-list-item {
+.list-5 .position-list-item {
   margin: 5em 0;
   /* 4*32 - 5*2 */
   height: 118em;
+}
+.list-6 .position-list-item {
+  margin: 6em 0;
+  /* 4*64 - 6*2 */
+  height: 244em;
 }
 .item-index {
   display: flex;
