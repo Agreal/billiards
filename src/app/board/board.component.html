@@ -1,9 +1,11 @@
 <h3>蛇形排阵</h3>
-<button mat-button [matMenuTriggerFor]="menu">选择</button>
-<mat-menu #menu="matMenu">
-  <button mat-menu-item>4</button>
-  <button mat-menu-item>8</button>
-  <button mat-menu-item>16</button>
-  <button mat-menu-item>32</button>
-  <button mat-menu-item>64</button>
-</mat-menu>
+
+<mat-form-field>
+  <mat-select [(ngModel)]="selectedValue">
+    <mat-option *ngFor="let opt of options" [value]="opt.value">
+      {{opt.viewValue}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+
+<p>You selected: {{selectedValue}}</p>
