@@ -1,9 +1,7 @@
 <h3>蛇形对阵</h3>
 
-<p>参赛人数: {{selectedValue}}人</p>
-
 <mat-form-field>
-  <mat-select [(ngModel)]="selectedValue">
+  <mat-select placeholder="参赛人数" [(ngModel)]="selectedValue">
     <mat-option *ngFor="let opt of options" [value]="opt" (click)="onSelect(opt)">
       {{opt}}人
     </mat-option>
