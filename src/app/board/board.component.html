@@ -8,4 +8,13 @@
   </mat-select>
 </mat-form-field>
 
-<p>You selected: {{selectedValue}}</p>
+<!--<p>You selected: {{selectedValue}}</p>-->
+
+<div class="positions-container">
+  <ul class="position-list" ngClass="{{'list' + game.length}}" *ngFor="let game of games; index as row">
+    <li class="position-list-item" *ngFor="let pos of game; index as i">
+      <span class="item-index">{{i+1}}</span>
+      <span>{{pos}}</span>
+    </li>
+  </ul>
+</div>
