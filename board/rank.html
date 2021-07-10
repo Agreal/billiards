@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>排名计算器</title>
+  <link href="style.css" rel="stylesheet">
+</head>
+<body>
+<main class="row">
+  <div class="col">
+    <h3 class="title">上一次排名结果</h3>
+    <textarea id="latest" rows="40"></textarea>
+  </div>
+  <div class="col">
+    <h3 class="title">这次排名结果</h3>
+    <textarea id="current" rows="40"></textarea>
+  </div>
+  <div class="col">
+    <button id="computeBtn" class="button">计算最新排名结果</button>
+    <textarea id="result" rows="40"></textarea>
+  </div>
+</main>
+<script>
+  const latestData = document.querySelector('#latest')
+  const currentData = document.querySelector('#current')
+  const resultData = document.querySelector('#result')
+  const computeBtn = document.querySelector('#computeBtn')
+  computeBtn.addEventListener('click', compute)
+
+  function compute() {
+    const latestMap = toMap(latestData.value)
+    const currentMap = toMap(currentData.value)
+    resultData.value = toPrint(latestMap, currentMap)
+  }
+
+  function toMap(raw) {
+    if (!raw) return new Map()
+
+    const array = raw.split(/[\r\n]+/g)
+    const map = new Map()
+    array.forEach(function (item) {
+      const [name, record] = format(item)
+      map.set(name, record)
+    })
+    return map
+
+    function format(rowText) {
+      const [name, record] = rowText.trim().split(/\t/)
+      const trimedName = name.replaceAll(' ', '')
+      const parsedRecord = parseInt(record, 10)
+      return [trimedName, parsedRecord]
+    }
+  }
+
+  function toPrint(aMap, bMap) {
+    const resultObj = mergeRecord(aMap, bMap);
+    const sortedResultObj = resultObj.sort(sortRecord)
+    return toString(sortedResultObj)
+
+    function mergeRecord(aMap, bMap) {
+      const nameSet = union(aMap.keys(), bMap.keys())
+      return Array.from(nameSet).map(function (name) {
+        const aRecord = aMap.get(name) || 0
+        const bRecord = bMap.get(name) || 0
+        return {name, record: aRecord + bRecord}
+      })
+
+      function union(setA, setB) {
+        let _union = new Set(setA);
+        for (let elem of setB) {
+          _union.add(elem);
+        }
+        return _union;
+      }
+    }
+
+    function sortRecord(a, b) {
+      return b.record - a.record
+    }
+
+    function toString(arrayObj) {
+      return arrayObj.map(function (obj) {
+        return `${obj.name}\t${obj.record}`
+      }).join('\n')
+    }
+  }
+
+</script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+.row {
+  display: flex;
+  margin-left: -16px;
+}
+.col {
+  margin-left: 16px;
+}
+.title {
+  margin: 0;
+}
+.button {
+  display: block;
+}
